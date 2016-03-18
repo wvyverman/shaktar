@@ -1,0 +1,12 @@
+<div>
+	<h1>Shaktar Blog</h1>
+</div>
+
+{%for post in posts %}
+
+<div>
+	<p>Publicatiedatum: {{post.gepubliceerd_op}}</p>
+	<h2><a href="">{{ post.titel}} </a></h2>
+	<p>{{post.bericht|linebreaks }}</p>
+</div>
+{% endfor %}
