@@ -1,12 +1,23 @@
-<div>
-	<h1>Shaktar Blog</h1>
-</div>
+{% extends 'blog/base.html' %}
 
-{%for post in posts %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.gepubliceerd_op }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titel }}</a></h1>
+            <p>{{ post.bericht|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
 
-<div>
-	<p>Publicatiedatum: {{post.gepubliceerd_op}}</p>
-	<h2><a href="">{{ post.titel}} </a></h2>
-	<p>{{post.bericht|linebreaks }}</p>
-</div>
+{% for post in posts %}
+    <div class="post">
+        <div class="date">
+            {{ post.gepubliceerd_op }}
+        </div>
+        <h1><a href="">{{ post.titel }}</a></h1>
+        <p>{{ post.bericht|linebreaks }}</p>
+    </div>
 {% endfor %}
